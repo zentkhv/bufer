@@ -1,0 +1,19 @@
+--------------------------------------------
+Обновление:
+--------------------------------------------
+sudo systemctl stop grafana-server
+
+sudo rpm -Uvh <local rpm package>
+или
+sudo yum install ./<local rpm package>
+
+sudo systemctl start grafana-server
+
+
+--------------------------------------------
+Откат:
+--------------------------------------------
+sudo yum downgrade grafana-8.5.9-1.x86_64
+
+sudo systemctl restart grafana-server
+
