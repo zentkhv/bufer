@@ -10,3 +10,25 @@ with open('domains.txt', 'r') as domains_file, open('results.txt', 'w') as resul
             results_file.write(result)  # записываем результат в файл
         except socket.gaierror:  # обрабатываем ошибку невозможности определить IP-адрес домена
             print(f"Unable to resolve domain name: {domain_name}")
+
+
+import subprocess
+
+hostname = 'hostname' # Замените на реальный hostname сервера
+port = 22 # Порт SSH по умолчанию
+username = 'username' # Замените на реальное имя пользователя на сервере
+password = 'password' # Замените на реальный пароль пользователя на сервере
+
+# Собираем команду для SSH-подключения с использованием sshpass
+ssh_command = f'sshpass -p {password} ssh -o StrictHostKeyChecking=no -p {port} {username}@{hostname}'
+
+try:
+    # Выполняем команду в новом процессе
+    subprocess.run(ssh_command, shell=True, check=True)
+
+    # Если подключение успешно, выведем сообщение об этом
+    print("Подключение к серверу {} прошло успешно".format(hostname))
+
+except subprocess.CalledProcessError as e:
+    # Если при подключении возникла ошибка, выведем ее текст
+    print("Ошибка подключения:", e)
