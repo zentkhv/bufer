@@ -1,0 +1,12 @@
+import socket
+
+with open('domains.txt', 'r') as domains_file, open('results.txt', 'w') as results_file:
+    for domain_name in domains_file:
+        domain_name = domain_name.strip()  # удаляем символы перевода строки и пробелы
+
+        try:
+            ip_address = socket.gethostbyname(domain_name)  # получаем IP-адрес домена
+            result = f"{domain_name} {ip_address}\n"  # формируем строку с результатом
+            results_file.write(result)  # записываем результат в файл
+        except socket.gaierror:  # обрабатываем ошибку невозможности определить IP-адрес домена
+            print(f"Unable to resolve domain name: {domain_name}")
