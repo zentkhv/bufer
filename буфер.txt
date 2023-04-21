@@ -11,3 +11,18 @@ else
   (crontab -l ; cat "$(dirname "$0")/cron") | crontab -
   echo "Задание успешно добавлено в crontab."
 fi
+
+
+
+
+
+#!/bin/bash
+
+# Проверяем, существует ли заданное задание в crontab
+if crontab -l | grep -q "$(cat "$(dirname "$0")/cron" | sed 's/\*/\\\*/g')"; then
+  echo "Задание уже существует в crontab."
+else
+  # Если задание не существует, то добавляем его в crontab
+  (crontab -l ; cat "$(dirname "$0")/cron") | crontab -
+  echo "Задание успешно добавлено в crontab."
+fi
