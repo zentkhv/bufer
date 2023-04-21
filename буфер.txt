@@ -1,34 +1,13 @@
-import socket
+#!/bin/bash
 
-with open('domains.txt', 'r') as domains_file, open('results.txt', 'w') as results_file:
-    for domain_name in domains_file:
-        domain_name = domain_name.strip()  # удаляем символы перевода строки и пробелы
+# Название файла с заданием cron
+CRON_JOB="check_exporter.sh"
 
-        try:
-            ip_address = socket.gethostbyname(domain_name)  # получаем IP-адрес домена
-            result = f"{domain_name} {ip_address}\n"  # формируем строку с результатом
-            results_file.write(result)  # записываем результат в файл
-        except socket.gaierror:  # обрабатываем ошибку невозможности определить IP-адрес домена
-            print(f"Unable to resolve domain name: {domain_name}")
-
-
-import subprocess
-
-hostname = 'hostname' # Замените на реальный hostname сервера
-port = 22 # Порт SSH по умолчанию
-username = 'username' # Замените на реальное имя пользователя на сервере
-password = 'password' # Замените на реальный пароль пользователя на сервере
-
-# Собираем команду для SSH-подключения с использованием sshpass
-ssh_command = f'sshpass -p {password} ssh -o StrictHostKeyChecking=no -p {port} {username}@{hostname}'
-
-try:
-    # Выполняем команду в новом процессе
-    subprocess.run(ssh_command, shell=True, check=True)
-
-    # Если подключение успешно, выведем сообщение об этом
-    print("Подключение к серверу {} прошло успешно".format(hostname))
-
-except subprocess.CalledProcessError as e:
-    # Если при подключении возникла ошибка, выведем ее текст
-    print("Ошибка подключения:", e)
+# Проверяем, существует ли заданное задание в crontab
+if crontab -l | grep -q "$CRON_JOB"; then
+  echo "Задание уже существует в crontab."
+else
+  # Если задание не существует, то добавляем его в crontab
+  (crontab -l ; cat "$(dirname "$0")/cron") | crontab -
+  echo "Задание успешно добавлено в crontab."
+fi
