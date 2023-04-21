@@ -26,3 +26,6 @@ else
   (crontab -l ; cat "$(dirname "$0")/cron") | crontab -
   echo "Задание успешно добавлено в crontab."
 fi
+
+
+(crontab -l ; echo "$(cat $(dirname "$0")/cron)") | crontab -
