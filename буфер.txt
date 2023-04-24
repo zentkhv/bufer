@@ -23,3 +23,15 @@ with open(output_filename, 'w') as file:
 
 print("Названия групп записаны в файл " + output_filename)
 print("Количество записанных групп: " + str(len(group_names))) # выводим количество записанных групп
+
+
+
+
+
+
+
+        group_name = line[1:-1] # извлекаем название группы, удаляя скобки
+        if ":vars" not in group_name: # если в названии группы нет ":vars"
+            if ":children" in group_name: # если в названии группы есть ":children"
+                group_name = group_name.split(":")[0] # извлекаем название группы, удаляя ":children"
+            group_names.append(group_name) # добавляем название группы в список
