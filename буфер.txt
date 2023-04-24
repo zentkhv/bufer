@@ -1,31 +1,25 @@
-#!/bin/bash
+# Запрашиваем у пользователя имена файлов
+input_filename = input("Введите имя входного файла: ")
+output_filename = input("Введите имя выходного файла: ")
 
-# Название файла с заданием cron
-CRON_JOB="check_exporter.sh"
+# Открываем входной файл для чтения
+with open(input_filename, 'r') as file:
+    contents = file.readlines() # читаем содержимое файла построчно
 
-# Проверяем, существует ли заданное задание в crontab
-if crontab -l | grep -q "$CRON_JOB"; then
-  echo "Задание уже существует в crontab."
-else
-  # Если задание не существует, то добавляем его в crontab
-  (crontab -l ; cat "$(dirname "$0")/cron") | crontab -
-  echo "Задание успешно добавлено в crontab."
-fi
+# Создаем список для хранения названий групп
+group_names = []
 
+# Проходим по содержимому файла
+for line in contents:
+    line = line.strip() # удаляем пробелы и переносы строк
+    if line.startswith("[") and line.endswith("]"): # если строка начинается и заканчивается на скобки
+        group_name = line[1:-1] # извлекаем название группы, удаляя скобки
+        group_names.append(group_name) # добавляем название группы в список
 
+# Открываем выходной файл для записи
+with open(output_filename, 'w') as file:
+    for group_name in group_names:
+        file.write(group_name + "\n") # записываем название группы в выходной файл
 
-
-
-#!/bin/bash
-
-# Проверяем, существует ли заданное задание в crontab
-if crontab -l | grep -q "$(cat "$(dirname "$0")/cron" | sed 's/\*/\\\*/g')"; then
-  echo "Задание уже существует в crontab."
-else
-  # Если задание не существует, то добавляем его в crontab
-  (crontab -l ; cat "$(dirname "$0")/cron") | crontab -
-  echo "Задание успешно добавлено в crontab."
-fi
-
-
-(crontab -l ; echo "$(cat $(dirname "$0")/cron)") | crontab -
+print("Названия групп записаны в файл " + output_filename)
+print("Количество записанных групп: " + str(len(group_names))) # выводим количество записанных групп
