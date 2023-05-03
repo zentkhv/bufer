@@ -1,14 +1,24 @@
 import BaseHTTPServer
 
-class Handler(BaseHTTPServer.BaseHTTPRequestHandler):
+class MyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
+    
     def do_GET(self):
-        f = open('output.txt', 'r')
-        self.send_response(200)
-        self.send_header('Content-type', 'text/plain')
-        self.end_headers()
-        for line in f:
-            self.wfile.write(line)
-        f.close()
+        if self.path == "/":
+            # Открываем файл и читаем его содержимое
+            with open("output.txt", "r") as f:
+                data = f.read()
+            # Отправляем заголовки HTTP
+            self.send_response(200)
+            self.send_header('Content-type', 'text/plain')
+            self.end_headers()
+            # Отправляем содержимое файла в ответ на запрос
+            self.wfile.write(data)
+        else:
+            # Если запрос отправлен к другому URL, отвечаем 404 ошибкой
+            self.send_error(404)
 
-httpd = BaseHTTPServer.HTTPServer(('localhost', 8000), Handler)
-httpd.serve_forever()
+if __name__ == '__main__':
+    server_address = ('', 8000)
+    httpd = BaseHTTPServer.HTTPServer(server_address, MyHandler)
+    print('Starting server on port 8000...')
+    httpd.serve_forever()
