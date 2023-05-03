@@ -5,11 +5,29 @@ kafka_port = "9092"
 ip_address = subprocess.check_output(['hostname', '-I']).decode().split()[0]
 
 with open(groups_file) as f:
-    group = f.readline().strip()
+    groups = [group.strip() for group in f]
 
-command = '/opt/Apache/kafka/bin/kafka-consumer-groups --bootstrap-server {0}:{1} --describe --group {2}'.format(ip_address, kafka_port, group)
-result = subprocess.check_output(command, shell=True).decode()
+data = []
+for group in groups:
+    command = f'/opt/Apache/kafka/bin/kafka-consumer-groups --bootstrap-server {ip_address}:{kafka_port} --describe --group {group}'
+    result = subprocess.check_output(command, shell=True).decode()
 
-output_file = "output.txt"
-with open(output_file, 'w') as f:
-    f.write(result)
+    lines = result.strip().split("\n")[1:]  # skip header line
+
+    for line in lines:
+        fields = line.split()
+        item = {
+            "GROUP": fields[0],
+            "TOPIC": fields[1],
+            "PARTITION": int(fields[2]),
+            "CURRENT-OFFSET": int(fields[3]),
+            "LOG-END-OFFSET": int(fields[4]),
+            "LAG": int(fields[5]),
+            "CONSUMER-ID": fields[6],
+            "HOST": fields[7],
+            "CLIENT-ID": fields[8],
+        }
+        data.append(item)
+
+for item in data:
+    print(item)
