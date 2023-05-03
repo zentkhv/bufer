@@ -1,2 +1,7 @@
 logging.basicConfig(filename=config.log_file_name, filemode='a', format='%(asctime)s: |%(name)s %(levelname)s| %(message)s',
                     datefmt=config.format_datetime, level=logging.INFO)
+
+
+format_datetime = '%Y-%m-%d %H:%M:%S'
+format_date = '%Y-%m-%d'
+format_time = '%H:%M:%S'
