@@ -9,4 +9,7 @@ with open(groups_file) as f:
 
 command = '/opt/Apache/kafka/bin/kafka-consumer-groups --bootstrap-server {0}:{1} --describe --group {2}'.format(ip_address, kafka_port, group)
 result = subprocess.check_output(command, shell=True).decode()
-print(result)
+
+output_file = "output.txt"
+with open(output_file, 'w') as f:
+    f.write(result)
