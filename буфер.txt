@@ -1,3 +1,6 @@
+import logging
+import logging.handlers
+import os
 import BaseHTTPServer
 
 class MyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
@@ -18,7 +21,16 @@ class MyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
             self.send_error(404)
 
 if __name__ == '__main__':
+    # Настраиваем логирование
+    log_file = "server.log"
+    logger = logging.getLogger("server")
+    logger.setLevel(logging.DEBUG)
+    formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+    handler = logging.handlers.RotatingFileHandler(log_file, maxBytes=10*1024*1024, backupCount=5)
+    handler.setFormatter(formatter)
+    logger.addHandler(handler)
+    # Запускаем сервер
     server_address = ('', 8000)
     httpd = BaseHTTPServer.HTTPServer(server_address, MyHandler)
-    print('Starting server on port 8000...')
+    logger.info('Starting server on port 8000...')
     httpd.serve_forever()
