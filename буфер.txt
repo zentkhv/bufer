@@ -1,6 +1,24 @@
-if crontab -l | grep -q "$(cat "$(dirname "$0")/cron_metrics")"; then
-  echo "Задание уже существует в crontab."
-else
-  (crontab -l ; echo "$(cat $(dirname "$0")/cron_metrics)") | crontab -
-  echo "Задание успешно добавлено в crontab."
-fi
+import http.server
+import subprocess
+
+homedir = str(subprocess.check_output('echo $HOME', shell=True).decode().split()[0])
+metrics_file = "{home}/lag-exporter/metrics.txt".format(home=homedir)
+
+
+class MyHandler(http.server.BaseHTTPRequestHandler):
+    def do_GET(self):
+        if self.path == "/" or self.path == "/metrics":
+            with open(metrics_file, "r") as f:
+                data = f.read()
+            self.send_response(200)
+            self.send_header('Content-type', 'text/plain')
+            self.end_headers()
+            self.wfile.write(bytes(data, 'utf-8'))
+        else:
+            self.send_error(404)
+
+
+if __name__ == '__main__':
+    server_address = ('', 7030)
+    httpd = http.server.HTTPServer(server_address, MyHandler)
+    httpd.serve_forever()
