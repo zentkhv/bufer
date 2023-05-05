@@ -22,3 +22,24 @@ if __name__ == '__main__':
     server_address = ('', 7030)
     httpd = http.server.HTTPServer(server_address, MyHandler)
     httpd.serve_forever()
+
+
+
+
+---
+- name: Copy file based on Python version
+  hosts: my_hosts
+  become: true
+
+  tasks:
+    - name: Copy file for Python 2
+      copy:
+        src: /path/to/file/python2/file.txt
+        dest: /path/to/destination/
+      when: ansible_host.python_version == 2
+
+    - name: Copy file for Python 3
+      copy:
+        src: /path/to/file/python3/file.txt
+        dest: /path/to/destination/
+      when: ansible_host.python_version == 3
