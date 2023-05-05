@@ -1,10 +1,14 @@
-import subprocess
+#!/bin/bash
 
-try:
-    output = subprocess.check_output(['pgrep', '-f', 'get_metrics.py'])
-    if output.strip():
-        print("Процесс 'get_metrics.py' найден")
-    else:
-        print("Процесс 'get_metrics.py' не найден")
-except subprocess.CalledProcessError:
-    print("Произошла ошибка при выполнении команды 'pgrep'.")
+if [ $# -eq 2 ]; then
+    if [ "$1" = "True" ]; then
+        echo "Первый параметр: $1"
+    fi
+
+    if [ "$2" = "True" ]; then
+        echo "Второй параметр: $2"
+    fi
+else
+    echo "Ошибка: нужно передать два параметра"
+    exit 1
+fi
