@@ -1,14 +1,31 @@
-#!/bin/bash
+import org.apache.kafka.clients.admin.AdminClient;
+import org.apache.kafka.clients.admin.ConsumerGroupListing;
+import org.apache.kafka.clients.admin.ListConsumerGroupsResult;
 
-if [ $# -eq 2 ]; then
-    if [ "$1" = "True" ]; then
-        echo "Первый параметр: $1"
-    fi
+import java.util.Collection;
+import java.util.Properties;
+import java.util.concurrent.ExecutionException;
 
-    if [ "$2" = "True" ]; then
-        echo "Второй параметр: $2"
-    fi
-else
-    echo "Ошибка: нужно передать два параметра"
-    exit 1
-fi
+public class KafkaConsumerGroupExample {
+    public static void main(String[] args) {
+        // Настройка свойств AdminClient
+        Properties properties = new Properties();
+        properties.put("bootstrap.servers", "localhost:9092");
+
+        try (AdminClient adminClient = AdminClient.create(properties)) {
+            // Получение списка групп потребителей
+            ListConsumerGroupsResult consumerGroupsResult = adminClient.listConsumerGroups();
+            Collection<ConsumerGroupListing> consumerGroups = consumerGroupsResult.all().get();
+
+            // Вывод информации о каждой группе потребителей
+            for (ConsumerGroupListing consumerGroup : consumerGroups) {
+                System.out.println("Group ID: " + consumerGroup.groupId());
+                System.out.println("State: " + consumerGroup.state());
+                System.out.println("Protocol Type: " + consumerGroup.protocolType());
+                System.out.println();
+            }
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+        }
+    }
+}
