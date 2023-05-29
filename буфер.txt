@@ -4,3 +4,5 @@ kafka-consumer-groups.sh --bootstrap-server <bootstrap-server> --command-config 
 security.protocol=SSL
 ssl.truststore.type=PEM
 ssl.truststore.certificates=<path-to-certificates-file>
+
+kafka-consumer-groups.sh --bootstrap-server <bootstrap-server> --command-config <path-to-config-file> --list --consumer-property security.protocol=SSL --consumer-property ssl.ca.location=<path-to-certificates-file>
