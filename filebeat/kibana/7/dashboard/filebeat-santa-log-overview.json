@@ -1,0 +1,148 @@
+{
+    "objects": [
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"filter\": [], \"query\": {\"query\": \"\", \"language\": \"kuery\"}}"
+                },
+                "title": "Description [Filebeat Santa] ECS",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"type\": \"markdown\", \"title\": \"Description [Filebeat Santa] ECS\", \"params\": {\"markdown\": \"![Santa Icon](https://raw.githubusercontent.com/google/santa/master/Source/SantaGUI/Resources/Images.xcassets/AppIcon.appiconset/santa-hat-icon-128.png)\\n\\nGoogle Santa is a binary whitelisting/blacklisting system for macOS that monitors process executions.\", \"fontSize\": 12, \"openLinksInNewTab\": false}, \"aggs\": []}"
+            },
+            "id": "dad521d0-ff69-11e8-93c5-d5ecd1b3e307-ecs",
+            "type": "visualization",
+            "updated_at": "2018-12-14T06:31:14.285Z",
+            "version": 1
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"filter\": [], \"query\": {\"query\": \"\", \"language\": \"kuery\"}}"
+                },
+                "title": "Decisions [Filebeat Santa] ECS",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"type\": \"metrics\", \"title\": \"Decisions [Filebeat Santa] ECS\", \"params\": {\"filter\": \"event.module:santa AND event.dataset:log\", \"series\": [{\"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"fill\": 0.5, \"line_width\": 1, \"point_size\": 1, \"color\": \"#68BC00\", \"axis_position\": \"right\", \"separate_axis\": 0, \"formatter\": \"number\", \"label\": \"Decision\", \"chart_type\": \"line\", \"terms_field\": \"santa.decision\", \"split_mode\": \"terms\", \"stacked\": \"none\", \"metrics\": [{\"type\": \"count\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}]}], \"show_legend\": 1, \"axis_position\": \"left\", \"interval\": \"auto\", \"index_pattern\": \"filebeat-*\", \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"axis_scale\": \"normal\", \"axis_formatter\": \"number\", \"time_field\": \"@timestamp\", \"show_grid\": 1, \"type\": \"timeseries\"}, \"aggs\": []}"
+            },
+            "id": "1579d690-ff6b-11e8-93c5-d5ecd1b3e307-ecs",
+            "type": "visualization",
+            "updated_at": "2018-12-14T06:40:02.169Z",
+            "version": 1
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"filter\": [], \"query\": {\"query\": \"\", \"language\": \"kuery\"}}"
+                },
+                "savedSearchId": "6d56a010-ff6a-11e8-93c5-d5ecd1b3e307-ecs",
+                "title": "Total Events [Filebeat Santa] ECS",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"type\": \"metric\", \"title\": \"Total Events [Filebeat Santa] ECS\", \"params\": {\"metric\": {\"labels\": {\"show\": true}, \"percentageMode\": false, \"style\": {\"subText\": \"\", \"bgColor\": false, \"bgFill\": \"#000\", \"labelColor\": false, \"fontSize\": 60}, \"useRanges\": false, \"colorsRange\": [{\"to\": 10000, \"from\": 0}], \"colorSchema\": \"Green to Red\", \"metricColorMode\": \"None\", \"invertColors\": false}, \"type\": \"metric\", \"addTooltip\": true, \"addLegend\": false}, \"aggs\": [{\"enabled\": true, \"schema\": \"metric\", \"id\": \"1\", \"params\": {\"customLabel\": \"Total Events\"}, \"type\": \"count\"}]}"
+            },
+            "id": "51677b80-ff6b-11e8-93c5-d5ecd1b3e307-ecs",
+            "type": "visualization",
+            "updated_at": "2018-12-14T06:41:42.712Z",
+            "version": 1
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"filter\": [], \"query\": {\"query\": \"\", \"language\": \"kuery\"}}"
+                },
+                "savedSearchId": "6d56a010-ff6a-11e8-93c5-d5ecd1b3e307-ecs",
+                "title": "Decision and Reason [Filebeat Santa] ECS",
+                "uiStateJSON": "{\"vis\": {\"colors\": {\"ALLOW\": \"#7EB26D\"}}}",
+                "version": 1,
+                "visState": "{\"type\": \"pie\", \"title\": \"Decision and Reason [Filebeat Santa] ECS\", \"params\": {\"addTooltip\": true, \"labels\": {\"last_level\": true, \"values\": true, \"truncate\": 100, \"show\": false}, \"isDonut\": true, \"addLegend\": true, \"type\": \"pie\", \"legendPosition\": \"right\"}, \"aggs\": [{\"enabled\": true, \"schema\": \"metric\", \"id\": \"1\", \"params\": {}, \"type\": \"count\"}, {\"enabled\": true, \"schema\": \"segment\", \"id\": \"2\", \"params\": {\"order\": \"desc\", \"orderBy\": \"1\", \"customLabel\": \"Decision\", \"otherBucket\": false, \"missingBucket\": false, \"otherBucketLabel\": \"Other\", \"field\": \"santa.decision\", \"size\": 5, \"missingBucketLabel\": \"Missing\"}, \"type\": \"terms\"}, {\"enabled\": true, \"schema\": \"segment\", \"id\": \"3\", \"params\": {\"order\": \"desc\", \"orderBy\": \"1\", \"customLabel\": \"Reason\", \"otherBucket\": false, \"missingBucket\": false, \"otherBucketLabel\": \"Other\", \"field\": \"santa.reason\", \"size\": 5, \"missingBucketLabel\": \"Missing\"}, \"type\": \"terms\"}]}"
+            },
+            "id": "30962fe0-ff6c-11e8-93c5-d5ecd1b3e307-ecs",
+            "type": "visualization",
+            "updated_at": "2018-12-14T06:47:57.150Z",
+            "version": 1
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"filter\": [], \"query\": {\"query\": \"\", \"language\": \"kuery\"}}"
+                },
+                "savedSearchId": "6d56a010-ff6a-11e8-93c5-d5ecd1b3e307-ecs",
+                "title": "Num of Hosts Reporting [Filebeat Santa] ECS",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"type\": \"metric\", \"title\": \"Num of Hosts Reporting [Filebeat Santa] ECS\", \"params\": {\"metric\": {\"labels\": {\"show\": true}, \"percentageMode\": false, \"style\": {\"subText\": \"\", \"bgColor\": false, \"bgFill\": \"#000\", \"labelColor\": false, \"fontSize\": 60}, \"useRanges\": false, \"colorsRange\": [{\"to\": 10000, \"from\": 0}], \"colorSchema\": \"Green to Red\", \"metricColorMode\": \"None\", \"invertColors\": false}, \"type\": \"metric\", \"addTooltip\": true, \"addLegend\": false}, \"aggs\": [{\"enabled\": true, \"schema\": \"metric\", \"id\": \"1\", \"params\": {\"field\": \"agent.hostname\", \"customLabel\": \"Hosts Reporting\"}, \"type\": \"cardinality\"}]}"
+            },
+            "id": "b06c0460-ff6c-11e8-93c5-d5ecd1b3e307-ecs",
+            "type": "visualization",
+            "updated_at": "2018-12-14T06:51:31.622Z",
+            "version": 1
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"filter\": [], \"query\": {\"query\": \"\", \"language\": \"kuery\"}}"
+                },
+                "savedSearchId": "6d56a010-ff6a-11e8-93c5-d5ecd1b3e307-ecs",
+                "title": "Code Signers [Filebeat Santa] ECS",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"type\": \"tagcloud\", \"title\": \"Code Signers [Filebeat Santa] ECS\", \"params\": {\"orientation\": \"single\", \"scale\": \"linear\", \"showLabel\": true, \"minFontSize\": 12, \"maxFontSize\": 39}, \"aggs\": [{\"enabled\": true, \"schema\": \"metric\", \"id\": \"1\", \"params\": {}, \"type\": \"count\"}, {\"enabled\": true, \"schema\": \"segment\", \"id\": \"2\", \"params\": {\"order\": \"desc\", \"orderBy\": \"1\", \"otherBucket\": false, \"missingBucket\": false, \"otherBucketLabel\": \"Other\", \"field\": \"certificate.common_name\", \"size\": 5, \"missingBucketLabel\": \"Missing\"}, \"type\": \"terms\"}]}"
+            },
+            "id": "11858000-ff6d-11e8-93c5-d5ecd1b3e307-ecs",
+            "type": "visualization",
+            "updated_at": "2018-12-14T06:57:58.885Z",
+            "version": 2
+        },
+        {
+            "attributes": {
+                "columns": [
+                    "agent.hostname",
+                    "process.executable",
+                    "user.name",
+                    "certificate.common_name"
+                ],
+                "description": "",
+                "hits": 0,
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"filter\": [{\"$state\": {\"store\": \"appState\"}, \"query\": {\"match\": {\"event.module\": {\"query\": \"santa\", \"type\": \"phrase\"}}}, \"meta\": {\"alias\": null, \"negate\": false, \"type\": \"phrase\", \"disabled\": false, \"key\": \"event.module\", \"value\": \"santa\", \"params\": {\"query\": \"santa\", \"type\": \"phrase\"}, \"index\": \"filebeat-*\"}}, {\"$state\": {\"store\": \"appState\"}, \"query\": {\"match\": {\"event.dataset\": {\"query\": \"log\", \"type\": \"phrase\"}}}, \"meta\": {\"alias\": null, \"negate\": false, \"type\": \"phrase\", \"disabled\": false, \"key\": \"event.dataset\", \"value\": \"log\", \"params\": {\"query\": \"log\", \"type\": \"phrase\"}, \"index\": \"filebeat-*\"}}], \"version\": true, \"highlightAll\": true, \"query\": {\"query\": \"\", \"language\": \"kuery\"}, \"index\": \"filebeat-*\"}"
+                },
+                "sort": [
+                    "@timestamp",
+                    "desc"
+                ],
+                "title": "Santa Logs Search [Filebeat Santa] ECS",
+                "version": 1
+            },
+            "id": "6d56a010-ff6a-11e8-93c5-d5ecd1b3e307-ecs",
+            "type": "search",
+            "updated_at": "2018-12-14T06:57:11.037Z",
+            "version": 2
+        },
+        {
+            "attributes": {
+                "description": "Process executions on macOS monitored by Google Santa.",
+                "hits": 0,
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"filter\": [], \"query\": {\"query\": \"\", \"language\": \"kuery\"}}"
+                },
+                "optionsJSON": "{\"hidePanelTitles\": false, \"darkTheme\": false, \"useMargins\": true}",
+                "panelsJSON": "[{\"gridData\": {\"w\": 10, \"y\": 0, \"h\": 12, \"i\": \"1\", \"x\": 0}, \"version\": \"7.0.0-alpha1-SNAPSHOT\", \"id\": \"dad521d0-ff69-11e8-93c5-d5ecd1b3e307-ecs\", \"type\": \"visualization\", \"embeddableConfig\": {}, \"panelIndex\": \"1\"}, {\"gridData\": {\"w\": 38, \"y\": 0, \"h\": 12, \"i\": \"2\", \"x\": 10}, \"version\": \"7.0.0-alpha1-SNAPSHOT\", \"id\": \"1579d690-ff6b-11e8-93c5-d5ecd1b3e307-ecs\", \"type\": \"visualization\", \"embeddableConfig\": {}, \"panelIndex\": \"2\"}, {\"gridData\": {\"w\": 10, \"y\": 12, \"h\": 10, \"i\": \"3\", \"x\": 8}, \"version\": \"7.0.0-alpha1-SNAPSHOT\", \"id\": \"51677b80-ff6b-11e8-93c5-d5ecd1b3e307-ecs\", \"type\": \"visualization\", \"embeddableConfig\": {}, \"panelIndex\": \"3\"}, {\"gridData\": {\"w\": 12, \"y\": 12, \"h\": 10, \"i\": \"4\", \"x\": 36}, \"version\": \"7.0.0-alpha1-SNAPSHOT\", \"id\": \"30962fe0-ff6c-11e8-93c5-d5ecd1b3e307-ecs\", \"type\": \"visualization\", \"embeddableConfig\": {}, \"panelIndex\": \"4\"}, {\"gridData\": {\"w\": 8, \"y\": 12, \"h\": 10, \"i\": \"5\", \"x\": 0}, \"version\": \"7.0.0-alpha1-SNAPSHOT\", \"id\": \"b06c0460-ff6c-11e8-93c5-d5ecd1b3e307-ecs\", \"type\": \"visualization\", \"embeddableConfig\": {}, \"panelIndex\": \"5\"}, {\"gridData\": {\"w\": 18, \"y\": 12, \"h\": 10, \"i\": \"6\", \"x\": 18}, \"version\": \"7.0.0-alpha1-SNAPSHOT\", \"id\": \"11858000-ff6d-11e8-93c5-d5ecd1b3e307-ecs\", \"type\": \"visualization\", \"embeddableConfig\": {}, \"panelIndex\": \"6\"}, {\"gridData\": {\"w\": 48, \"y\": 22, \"h\": 10, \"i\": \"7\", \"x\": 0}, \"version\": \"7.0.0-alpha1-SNAPSHOT\", \"id\": \"6d56a010-ff6a-11e8-93c5-d5ecd1b3e307-ecs\", \"type\": \"search\", \"embeddableConfig\": {}, \"panelIndex\": \"7\"}]",
+                "timeRestore": false,
+                "title": "[Filebeat Santa] Overview ECS",
+                "version": 1
+            },
+            "id": "161855f0-ff6a-11e8-93c5-d5ecd1b3e307-ecs",
+            "type": "dashboard",
+            "updated_at": "2018-12-14T06:58:23.367Z",
+            "version": 5
+        }
+    ],
+    "version": "7.0.0-alpha1-SNAPSHOT"
+}

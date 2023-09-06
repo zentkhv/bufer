@@ -1,0 +1,112 @@
+{
+    "objects": [
+        {
+            "attributes": {
+                "description": "Overview dashboard for Filebeat MSIP module.",
+                "hits": 0,
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"filter\": [], \"query\": {\"query\": \"\", \"language\": \"kuery\"}}"
+                },
+                "optionsJSON": "{\"hidePanelTitles\": false, \"useMargins\": true}",
+                "panelsJSON": "[{\"embeddableConfig\": {}, \"version\": \"8.0.0-SNAPSHOT\", \"panelRefName\": \"panel_0\", \"panelIndex\": \"1\", \"gridData\": {\"w\": 24, \"y\": 0, \"h\": 15, \"i\": \"1\", \"x\": 0}}, {\"embeddableConfig\": {}, \"version\": \"8.0.0-SNAPSHOT\", \"panelRefName\": \"panel_1\", \"panelIndex\": \"2\", \"gridData\": {\"w\": 24, \"y\": 0, \"h\": 15, \"i\": \"2\", \"x\": 24}}, {\"embeddableConfig\": {\"mapCenter\": [24.686952411999155, 12.128906250000002], \"mapZoom\": 3}, \"version\": \"8.0.0-SNAPSHOT\", \"panelRefName\": \"panel_2\", \"panelIndex\": \"3\", \"gridData\": {\"w\": 48, \"y\": 15, \"h\": 24, \"i\": \"3\", \"x\": 0}}]",
+                "timeRestore": false,
+                "title": "[Filebeat MISP] Overview",
+                "version": 1
+            },
+            "id": "c6cac9e0-f105-11e9-9a88-690b10c8ee99",
+            "migrationVersion": {
+                "dashboard": "7.0.0"
+            },
+            "references": [
+                {
+                    "id": "8fc4b140-ed36-11e9-9a88-690b10c8ee99",
+                    "name": "panel_0",
+                    "type": "visualization"
+                },
+                {
+                    "id": "7d369390-f105-11e9-9a88-690b10c8ee99",
+                    "name": "panel_1",
+                    "type": "visualization"
+                },
+                {
+                    "id": "73287f70-f1fb-11e9-9a88-690b10c8ee99",
+                    "name": "panel_2",
+                    "type": "visualization"
+                }
+            ],
+            "type": "dashboard",
+            "updated_at": "2019-10-19T18:56:55.244Z",
+            "version": "WzM2NCwxNV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"filter\": [], \"indexRefName\": \"kibanaSavedObjectMeta.searchSourceJSON.index\", \"query\": {\"query\": \"\", \"language\": \"kuery\"}}"
+                },
+                "title": "Threat Indicator Type [Filebeat MISP]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"type\": \"pie\", \"title\": \"Threat Indicator Type [Filebeat MISP]\", \"params\": {\"addTooltip\": true, \"labels\": {\"last_level\": true, \"values\": true, \"truncate\": 100, \"show\": false}, \"isDonut\": true, \"addLegend\": true, \"type\": \"pie\", \"legendPosition\": \"right\"}, \"aggs\": [{\"enabled\": true, \"schema\": \"metric\", \"id\": \"1\", \"params\": {}, \"type\": \"count\"}, {\"enabled\": true, \"schema\": \"segment\", \"id\": \"2\", \"params\": {\"order\": \"desc\", \"orderBy\": \"1\", \"otherBucket\": false, \"missingBucket\": false, \"otherBucketLabel\": \"Other\", \"field\": \"misp.threat_indicator.type\", \"size\": 20, \"missingBucketLabel\": \"Missing\"}, \"type\": \"terms\"}]}"
+            },
+            "id": "8fc4b140-ed36-11e9-9a88-690b10c8ee99",
+            "references": [
+                {
+                    "id": "filebeat-*",
+                    "name": "kibanaSavedObjectMeta.searchSourceJSON.index",
+                    "type": "index-pattern"
+                }
+            ],
+            "type": "visualization",
+            "updated_at": "2019-10-19T19:03:26.386Z",
+            "version": "WzM2NSwxNV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"filter\": [], \"indexRefName\": \"kibanaSavedObjectMeta.searchSourceJSON.index\", \"query\": {\"query\": \"\", \"language\": \"kuery\"}}"
+                },
+                "title": "Threat Indicators per Month  [Filebeat MISP]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"type\": \"histogram\", \"title\": \"Threat Indicators per Month  [Filebeat MISP]\", \"params\": {\"addTooltip\": true, \"addLegend\": true, \"addTimeMarker\": false, \"type\": \"histogram\", \"seriesParams\": [{\"data\": {\"id\": \"1\", \"label\": \"Indicators Per Month\"}, \"drawLinesBetweenPoints\": true, \"type\": \"histogram\", \"valueAxis\": \"ValueAxis-1\", \"show\": \"true\", \"showCircles\": true, \"mode\": \"stacked\"}], \"grid\": {\"categoryLines\": false}, \"times\": [], \"legendPosition\": \"right\", \"categoryAxes\": [{\"labels\": {\"truncate\": 100, \"show\": true}, \"id\": \"CategoryAxis-1\", \"show\": true, \"style\": {}, \"type\": \"category\", \"scale\": {\"type\": \"linear\"}, \"title\": {}, \"position\": \"bottom\"}], \"valueAxes\": [{\"labels\": {\"filter\": false, \"rotate\": 0, \"truncate\": 100, \"show\": true}, \"id\": \"ValueAxis-1\", \"name\": \"LeftAxis-1\", \"show\": true, \"style\": {}, \"type\": \"value\", \"scale\": {\"type\": \"linear\", \"mode\": \"normal\"}, \"title\": {\"text\": \"Indicators Per Month\"}, \"position\": \"left\"}]}, \"aggs\": [{\"enabled\": true, \"schema\": \"metric\", \"id\": \"1\", \"params\": {\"customLabel\": \"Indicators Per Month\"}, \"type\": \"count\"}, {\"enabled\": true, \"schema\": \"segment\", \"id\": \"2\", \"params\": {\"drop_partials\": false, \"time_zone\": \"America/Los_Angeles\", \"useNormalizedEsInterval\": true, \"interval\": \"M\", \"field\": \"@timestamp\", \"min_doc_count\": 1, \"timeRange\": {\"to\": \"now\", \"from\": \"now-15M\"}, \"customInterval\": \"2h\", \"extended_bounds\": {}}, \"type\": \"date_histogram\"}, {\"enabled\": true, \"schema\": \"group\", \"id\": \"3\", \"params\": {\"order\": \"desc\", \"orderBy\": \"1\", \"otherBucket\": false, \"missingBucket\": false, \"otherBucketLabel\": \"Other\", \"field\": \"misp.threat_indicator.type\", \"size\": 10, \"missingBucketLabel\": \"Missing\"}, \"type\": \"terms\"}]}"
+            },
+            "id": "7d369390-f105-11e9-9a88-690b10c8ee99",
+            "references": [
+                {
+                    "id": "filebeat-*",
+                    "name": "kibanaSavedObjectMeta.searchSourceJSON.index",
+                    "type": "index-pattern"
+                }
+            ],
+            "type": "visualization",
+            "updated_at": "2019-10-19T19:03:46.399Z",
+            "version": "WzM2NiwxNV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"filter\": [], \"indexRefName\": \"kibanaSavedObjectMeta.searchSourceJSON.index\", \"query\": {\"query\": \"\", \"language\": \"kuery\"}}"
+                },
+                "title": "Threat Indicator Geo Map [Filebeat MISP]",
+                "uiStateJSON": "{\"mapCenter\": [-0.17578097424708533, 0], \"mapZoom\": 2}",
+                "version": 1,
+                "visState": "{\"type\": \"tile_map\", \"title\": \"Threat Indicator Geo Map [Filebeat MISP]\", \"params\": {\"addTooltip\": true, \"wms\": {\"enabled\": false, \"options\": {\"transparent\": true, \"format\": \"image/png\"}, \"selectedTmsLayer\": {\"origin\": \"elastic_maps_service\", \"id\": \"road_map\", \"minZoom\": 0, \"maxZoom\": 18, \"attribution\": \"<p>&#169; <a href=\\\"https://www.openstreetmap.org/copyright\\\">OpenStreetMap contributors</a>|<a href=\\\"https://openmaptiles.org\\\">OpenMapTiles</a>|<a href=\\\"https://www.maptiler.com\\\">MapTiler</a>|<a href=\\\"https://www.elastic.co/elastic-maps-service\\\">Elastic Maps Service</a></p>&#10;\"}}, \"mapZoom\": 2, \"heatClusterSize\": 1.5, \"mapType\": \"Scaled Circle Markers\", \"colorSchema\": \"Yellow to Red\", \"legendPosition\": \"bottomright\", \"mapCenter\": [0, 0], \"isDesaturated\": true}, \"aggs\": [{\"enabled\": true, \"schema\": \"metric\", \"id\": \"1\", \"params\": {}, \"type\": \"count\"}, {\"enabled\": true, \"schema\": \"segment\", \"id\": \"2\", \"params\": {\"autoPrecision\": true, \"isFilteredByCollar\": true, \"mapCenter\": {\"lon\": 0, \"lat\": -0.17578097424708533}, \"precision\": 2, \"useGeocentroid\": true, \"mapBounds\": {\"bottom_right\": {\"lon\": 60.99609375000001, \"lat\": -42.68243539838622}, \"top_left\": {\"lon\": -60.99609375000001, \"lat\": 42.35854391749705}}, \"field\": \"source.geo.location\", \"mapZoom\": 4}, \"type\": \"geohash_grid\"}]}"
+            },
+            "id": "73287f70-f1fb-11e9-9a88-690b10c8ee99",
+            "references": [
+                {
+                    "id": "filebeat-*",
+                    "name": "kibanaSavedObjectMeta.searchSourceJSON.index",
+                    "type": "index-pattern"
+                }
+            ],
+            "type": "visualization",
+            "updated_at": "2019-10-19T19:04:04.029Z",
+            "version": "WzM2NywxNV0="
+        }
+    ],
+    "version": "8.0.0-SNAPSHOT"
+}

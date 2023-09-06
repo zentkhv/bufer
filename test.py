@@ -1,29 +1,28 @@
-import openai
+from flask import Flask, request
 
-import credentials
+app = Flask(__name__)
 
-openai.api_key = credentials.token
+@app.route('/', methods=['GET'])
+def handle_get():
+    return "GET Request Received!"
 
+@app.route('/', methods=['POST'])
+def handle_post():
+    # Получаем данные о запросе
+    method = request.method
+    url = request.url
+    headers = dict(request.headers)
+    data = request.data
 
-def generate_answer(prompt):
-    response = openai.Completion.create(
-        engine="davinci",  # модель, которую мы используем для генерации ответов
-        prompt=prompt,
-        temperature=0.2,  # устанавливаем температуру для контроля генерации текста
-        max_tokens=60,  # устанавливаем максимальное количество генерируемых токенов
-        n=1,  # количество ответов, которые мы хотим получить
-        stop=None,
-        # остановка генерации текста, если мы не хотим, чтобы текст заканчивался на какую-то определенную фразу
-        timeout=15,  # устанавливаем тайм-аут на 15 секунд для получения ответа от модели
-    )
-    if response.choices[0].text.strip():  # проверяем, что ответ получен
-        return response.choices[0].text.strip()
-    else:
-        return "К сожалению, я не смог найти ответ на ваш вопрос."
+    # Выводим информацию о запросе
+    print(f"Метод: {method}")
+    print(f"URL: {url}")
+    print("Заголовки:")
+    for key, value in headers.items():
+        print(f"  {key}: {value}")
+    print(f"Тело запроса: {data}")
 
+    return "POST Request Received!"
 
-# входим в цикл диалога с пользователем
-while True:
-    prompt = input("Введите ваш вопрос: ")
-    answer = generate_answer(prompt)
-    print("Ответ: ", answer)
+if __name__ == '__main__':
+    app.run()

@@ -1,0 +1,348 @@
+{
+    "objects": [
+        {
+            "attributes": {
+                "description": "Sample dashboard for Cisco ASA Firewall devices",
+                "hits": 0,
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"filter\": [], \"query\": {\"query\": \"\", \"language\": \"kuery\"}}"
+                },
+                "optionsJSON": "{\"hidePanelTitles\": false, \"useMargins\": true}",
+                "panelsJSON": "[{\"gridData\": {\"w\": 12, \"y\": 15, \"h\": 15, \"i\": \"1\", \"x\": 12}, \"version\": \"7.0.0-SNAPSHOT\", \"panelRefName\": \"panel_0\", \"title\": \"Destination Port and Transport\", \"embeddableConfig\": {\"vis\": {\"legendOpen\": false}}, \"panelIndex\": \"1\"}, {\"gridData\": {\"w\": 12, \"y\": 15, \"h\": 15, \"i\": \"2\", \"x\": 0}, \"version\": \"7.0.0-SNAPSHOT\", \"panelRefName\": \"panel_1\", \"title\": \"Source Port and Transport\", \"embeddableConfig\": {\"vis\": {\"legendOpen\": false}}, \"panelIndex\": \"2\"}, {\"gridData\": {\"w\": 24, \"y\": 0, \"h\": 15, \"i\": \"3\", \"x\": 0}, \"version\": \"7.0.0-SNAPSHOT\", \"panelRefName\": \"panel_2\", \"title\": \"ASA Firewall Events Over Time\", \"embeddableConfig\": {\"vis\": {\"legendOpen\": false}}, \"panelIndex\": \"3\"}, {\"gridData\": {\"w\": 24, \"y\": 0, \"h\": 15, \"i\": \"4\", \"x\": 24}, \"version\": \"7.0.0-SNAPSHOT\", \"panelRefName\": \"panel_3\", \"title\": \"ASA Flows by Network Bytes\", \"embeddableConfig\": {\"vis\": {\"legendOpen\": false}}, \"panelIndex\": \"4\"}, {\"gridData\": {\"w\": 12, \"y\": 15, \"h\": 15, \"i\": \"5\", \"x\": 24}, \"version\": \"7.0.0-SNAPSHOT\", \"panelRefName\": \"panel_4\", \"title\": \"Blocked by Source\", \"embeddableConfig\": {}, \"panelIndex\": \"5\"}, {\"gridData\": {\"w\": 12, \"y\": 15, \"h\": 15, \"i\": \"8\", \"x\": 36}, \"version\": \"7.0.0-SNAPSHOT\", \"panelRefName\": \"panel_5\", \"title\": \"Top ACL by Blocked\", \"embeddableConfig\": {}, \"panelIndex\": \"8\"}, {\"embeddableConfig\": {}, \"version\": \"7.0.0-SNAPSHOT\", \"panelRefName\": \"panel_6\", \"panelIndex\": \"9\", \"gridData\": {\"w\": 48, \"y\": 30, \"h\": 12, \"i\": \"9\", \"x\": 0}}]",
+                "timeRestore": false,
+                "title": "[Filebeat Cisco] ASA Firewall",
+                "version": 1
+            },
+            "id": "a555b160-4987-11e9-b8ce-ed898b5ef295",
+            "migrationVersion": {
+                "dashboard": "7.0.0"
+            },
+            "references": [
+                {
+                    "id": "118da960-4987-11e9-b8ce-ed898b5ef295",
+                    "name": "panel_0",
+                    "type": "visualization"
+                },
+                {
+                    "id": "5d0322d0-4987-11e9-b8ce-ed898b5ef295",
+                    "name": "panel_1",
+                    "type": "visualization"
+                },
+                {
+                    "id": "a3b5ab10-4989-11e9-b8ce-ed898b5ef295",
+                    "name": "panel_2",
+                    "type": "visualization"
+                },
+                {
+                    "id": "80d0c1b0-498a-11e9-b8ce-ed898b5ef295",
+                    "name": "panel_3",
+                    "type": "visualization"
+                },
+                {
+                    "id": "d05cdf60-498b-11e9-b8ce-ed898b5ef295",
+                    "name": "panel_4",
+                    "type": "visualization"
+                },
+                {
+                    "id": "08ef4d90-499b-11e9-b8ce-ed898b5ef295",
+                    "name": "panel_5",
+                    "type": "visualization"
+                },
+                {
+                    "id": "fd89b1e0-49a2-11e9-b8ce-ed898b5ef295",
+                    "name": "panel_6",
+                    "type": "visualization"
+                }
+            ],
+            "type": "dashboard",
+            "updated_at": "2019-03-18T18:39:06.844Z",
+            "version": "WzI2MiwxXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"filter\": [], \"query\": {\"query\": \"\", \"language\": \"kuery\"}}"
+                },
+                "savedSearchRefName": "search_0",
+                "title": "Destination Port and Transport [Filebeat Cisco]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"type\": \"pie\", \"title\": \"Destination Port and Transport [Filebeat Cisco]\", \"params\": {\"addTooltip\": true, \"labels\": {\"last_level\": true, \"values\": true, \"truncate\": 100, \"show\": false}, \"isDonut\": true, \"addLegend\": true, \"type\": \"pie\", \"legendPosition\": \"right\"}, \"aggs\": [{\"enabled\": true, \"schema\": \"metric\", \"id\": \"1\", \"params\": {}, \"type\": \"count\"}, {\"enabled\": true, \"schema\": \"segment\", \"id\": \"2\", \"params\": {\"order\": \"desc\", \"orderBy\": \"1\", \"otherBucket\": false, \"missingBucket\": false, \"otherBucketLabel\": \"Other\", \"field\": \"network.transport\", \"size\": 5, \"missingBucketLabel\": \"Missing\"}, \"type\": \"terms\"}, {\"enabled\": true, \"schema\": \"segment\", \"id\": \"3\", \"params\": {\"order\": \"desc\", \"orderBy\": \"1\", \"otherBucket\": false, \"missingBucket\": false, \"otherBucketLabel\": \"Other\", \"field\": \"destination.port\", \"size\": 5, \"missingBucketLabel\": \"Missing\"}, \"type\": \"terms\"}]}"
+            },
+            "id": "118da960-4987-11e9-b8ce-ed898b5ef295",
+            "migrationVersion": {
+                "visualization": "7.0.0"
+            },
+            "references": [
+                {
+                    "id": "753406e0-4986-11e9-b8ce-ed898b5ef295",
+                    "name": "search_0",
+                    "type": "search"
+                }
+            ],
+            "type": "visualization",
+            "updated_at": "2019-03-18T14:07:22.932Z",
+            "version": "WzI0NiwxXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"filter\": [], \"query\": {\"query\": \"\", \"language\": \"kuery\"}}"
+                },
+                "savedSearchRefName": "search_0",
+                "title": "Source Port and Transport [Filebeat Cisco]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"type\": \"pie\", \"title\": \"Source Port and Transport [Filebeat Cisco]\", \"params\": {\"addTooltip\": true, \"labels\": {\"last_level\": true, \"values\": true, \"truncate\": 100, \"show\": false}, \"isDonut\": true, \"addLegend\": true, \"type\": \"pie\", \"legendPosition\": \"right\"}, \"aggs\": [{\"enabled\": true, \"schema\": \"metric\", \"id\": \"1\", \"params\": {}, \"type\": \"count\"}, {\"enabled\": true, \"schema\": \"segment\", \"id\": \"2\", \"params\": {\"order\": \"desc\", \"orderBy\": \"1\", \"otherBucket\": false, \"missingBucket\": false, \"otherBucketLabel\": \"Other\", \"field\": \"network.transport\", \"size\": 5, \"missingBucketLabel\": \"Missing\"}, \"type\": \"terms\"}, {\"enabled\": true, \"schema\": \"segment\", \"id\": \"3\", \"params\": {\"order\": \"desc\", \"orderBy\": \"1\", \"otherBucket\": false, \"missingBucket\": false, \"otherBucketLabel\": \"Other\", \"field\": \"source.port\", \"size\": 5, \"missingBucketLabel\": \"Missing\"}, \"type\": \"terms\"}]}"
+            },
+            "id": "5d0322d0-4987-11e9-b8ce-ed898b5ef295",
+            "migrationVersion": {
+                "visualization": "7.0.0"
+            },
+            "references": [
+                {
+                    "id": "753406e0-4986-11e9-b8ce-ed898b5ef295",
+                    "name": "search_0",
+                    "type": "search"
+                }
+            ],
+            "type": "visualization",
+            "updated_at": "2019-03-18T14:08:54.141Z",
+            "version": "WzI0NywxXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"filter\": [], \"query\": {\"query\": \"\", \"language\": \"kuery\"}}"
+                },
+                "savedSearchRefName": "search_0",
+                "title": "ASA Events Over Time [Filebeat Cisco]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"type\": \"histogram\", \"title\": \"ASA Events Over Time [Filebeat Cisco]\", \"params\": {\"addTooltip\": true, \"addLegend\": true, \"addTimeMarker\": false, \"type\": \"histogram\", \"seriesParams\": [{\"data\": {\"id\": \"1\", \"label\": \"Count\"}, \"drawLinesBetweenPoints\": true, \"type\": \"histogram\", \"valueAxis\": \"ValueAxis-1\", \"show\": \"true\", \"showCircles\": true, \"mode\": \"stacked\"}], \"grid\": {\"categoryLines\": false}, \"times\": [], \"legendPosition\": \"right\", \"categoryAxes\": [{\"labels\": {\"truncate\": 100, \"show\": true}, \"id\": \"CategoryAxis-1\", \"show\": true, \"style\": {}, \"type\": \"category\", \"scale\": {\"type\": \"linear\"}, \"title\": {}, \"position\": \"bottom\"}], \"valueAxes\": [{\"labels\": {\"filter\": false, \"rotate\": 0, \"truncate\": 100, \"show\": true}, \"id\": \"ValueAxis-1\", \"name\": \"LeftAxis-1\", \"show\": true, \"style\": {}, \"type\": \"value\", \"scale\": {\"type\": \"linear\", \"mode\": \"normal\"}, \"title\": {\"text\": \"Count\"}, \"position\": \"left\"}]}, \"aggs\": [{\"enabled\": true, \"schema\": \"metric\", \"id\": \"1\", \"params\": {}, \"type\": \"count\"}, {\"enabled\": true, \"schema\": \"group\", \"id\": \"2\", \"params\": {\"order\": \"desc\", \"orderBy\": \"1\", \"otherBucket\": false, \"missingBucket\": false, \"otherBucketLabel\": \"Other\", \"field\": \"event.outcome\", \"size\": 5, \"missingBucketLabel\": \"Missing\"}, \"type\": \"terms\"}, {\"enabled\": true, \"schema\": \"segment\", \"id\": \"3\", \"params\": {\"drop_partials\": false, \"time_zone\": \"Europe/Madrid\", \"useNormalizedEsInterval\": true, \"interval\": \"auto\", \"field\": \"@timestamp\", \"min_doc_count\": 1, \"timeRange\": {\"to\": \"now+1y\", \"from\": \"now-15y\"}, \"customInterval\": \"2h\", \"extended_bounds\": {}}, \"type\": \"date_histogram\"}]}"
+            },
+            "id": "a3b5ab10-4989-11e9-b8ce-ed898b5ef295",
+            "migrationVersion": {
+                "visualization": "7.0.0"
+            },
+            "references": [
+                {
+                    "id": "96c6ff60-4986-11e9-b8ce-ed898b5ef295",
+                    "name": "search_0",
+                    "type": "search"
+                }
+            ],
+            "type": "visualization",
+            "updated_at": "2019-03-18T14:27:16.950Z",
+            "version": "WzI1MSwxXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"filter\": [], \"query\": {\"query\": \"\", \"language\": \"kuery\"}}"
+                },
+                "savedSearchRefName": "search_0",
+                "title": "ASA Flows by Network Bytes [Filebeat Cisco]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"type\": \"histogram\", \"title\": \"ASA Flows by Network Bytes [Filebeat Cisco]\", \"params\": {\"addTooltip\": true, \"addLegend\": true, \"addTimeMarker\": false, \"type\": \"histogram\", \"seriesParams\": [{\"data\": {\"id\": \"3\", \"label\": \"Total bytes\"}, \"drawLinesBetweenPoints\": true, \"type\": \"histogram\", \"valueAxis\": \"ValueAxis-1\", \"show\": true, \"showCircles\": true, \"mode\": \"stacked\"}], \"grid\": {\"categoryLines\": false}, \"times\": [], \"legendPosition\": \"right\", \"categoryAxes\": [{\"labels\": {\"truncate\": 100, \"show\": true}, \"id\": \"CategoryAxis-1\", \"show\": true, \"style\": {}, \"type\": \"category\", \"scale\": {\"type\": \"linear\"}, \"title\": {}, \"position\": \"bottom\"}], \"valueAxes\": [{\"labels\": {\"filter\": false, \"rotate\": 0, \"truncate\": 100, \"show\": true}, \"id\": \"ValueAxis-1\", \"name\": \"LeftAxis-1\", \"show\": true, \"style\": {}, \"type\": \"value\", \"scale\": {\"type\": \"linear\", \"mode\": \"normal\"}, \"title\": {\"text\": \"Total bytes\"}, \"position\": \"left\"}]}, \"aggs\": [{\"enabled\": true, \"schema\": \"segment\", \"id\": \"2\", \"params\": {\"drop_partials\": false, \"time_zone\": \"Europe/Madrid\", \"useNormalizedEsInterval\": true, \"interval\": \"auto\", \"field\": \"@timestamp\", \"min_doc_count\": 1, \"timeRange\": {\"to\": \"now+1y\", \"from\": \"now-15y\"}, \"customInterval\": \"2h\", \"extended_bounds\": {}}, \"type\": \"date_histogram\"}, {\"enabled\": true, \"schema\": \"metric\", \"id\": \"3\", \"params\": {\"field\": \"network.bytes\", \"customLabel\": \"Total bytes\"}, \"type\": \"sum\"}]}"
+            },
+            "id": "80d0c1b0-498a-11e9-b8ce-ed898b5ef295",
+            "migrationVersion": {
+                "visualization": "7.0.0"
+            },
+            "references": [
+                {
+                    "id": "753406e0-4986-11e9-b8ce-ed898b5ef295",
+                    "name": "search_0",
+                    "type": "search"
+                }
+            ],
+            "type": "visualization",
+            "updated_at": "2019-03-18T14:31:22.699Z",
+            "version": "WzI1MiwxXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"filter\": [], \"query\": {\"query\": \"\", \"language\": \"kuery\"}}"
+                },
+                "savedSearchRefName": "search_0",
+                "title": "ASA Firewall Blocked by Source [Filebeat Cisco]",
+                "uiStateJSON": "{\"vis\": {\"params\": {\"sort\": {\"direction\": null, \"columnIndex\": null}}}}",
+                "version": 1,
+                "visState": "{\"type\": \"table\", \"title\": \"ASA Firewall Blocked by Source [Filebeat Cisco]\", \"params\": {\"sort\": {\"direction\": null, \"columnIndex\": null}, \"perPage\": 10, \"showPartialRows\": false, \"showMetricsAtAllLevels\": false, \"showTotal\": false, \"totalFunc\": \"sum\"}, \"aggs\": [{\"enabled\": true, \"schema\": \"metric\", \"id\": \"1\", \"params\": {\"customLabel\": \"\"}, \"type\": \"count\"}, {\"enabled\": true, \"schema\": \"bucket\", \"id\": \"2\", \"params\": {\"order\": \"desc\", \"orderBy\": \"1\", \"otherBucket\": false, \"missingBucket\": false, \"otherBucketLabel\": \"Other\", \"field\": \"source.ip\", \"size\": 5, \"missingBucketLabel\": \"Missing\"}, \"type\": \"terms\"}]}"
+            },
+            "id": "d05cdf60-498b-11e9-b8ce-ed898b5ef295",
+            "migrationVersion": {
+                "visualization": "7.0.0"
+            },
+            "references": [
+                {
+                    "id": "96c6ff60-4986-11e9-b8ce-ed898b5ef295",
+                    "name": "search_0",
+                    "type": "search"
+                }
+            ],
+            "type": "visualization",
+            "updated_at": "2019-03-18T14:42:05.159Z",
+            "version": "WzI1NCwxXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"filter\": [], \"query\": {\"query\": \"event.outcome:\\\"deny\\\"\", \"language\": \"kuery\"}}"
+                },
+                "savedSearchRefName": "search_0",
+                "title": "ASA Top ACL by Blocked [Filebeat Cisco]",
+                "uiStateJSON": "{\"vis\": {\"params\": {\"sort\": {\"direction\": null, \"columnIndex\": null}}}}",
+                "version": 1,
+                "visState": "{\"type\": \"table\", \"title\": \"ASA Top ACL by Blocked [Filebeat Cisco]\", \"params\": {\"sort\": {\"direction\": null, \"columnIndex\": null}, \"perPage\": 10, \"showPartialRows\": false, \"showMetricsAtAllLevels\": false, \"showTotal\": false, \"totalFunc\": \"sum\"}, \"aggs\": [{\"enabled\": true, \"schema\": \"metric\", \"id\": \"1\", \"params\": {\"customLabel\": \"\"}, \"type\": \"count\"}, {\"enabled\": true, \"schema\": \"bucket\", \"id\": \"2\", \"params\": {\"order\": \"desc\", \"orderBy\": \"1\", \"customLabel\": \"ACL ID\", \"otherBucket\": false, \"missingBucket\": false, \"otherBucketLabel\": \"Other\", \"field\": \"cisco.asa.rule_name\", \"size\": 5, \"missingBucketLabel\": \"Missing\"}, \"type\": \"terms\"}]}"
+            },
+            "id": "08ef4d90-499b-11e9-b8ce-ed898b5ef295",
+            "migrationVersion": {
+                "visualization": "7.0.0"
+            },
+            "references": [
+                {
+                    "id": "96c6ff60-4986-11e9-b8ce-ed898b5ef295",
+                    "name": "search_0",
+                    "type": "search"
+                }
+            ],
+            "type": "visualization",
+            "updated_at": "2019-03-18T16:29:43.017Z",
+            "version": "WzI1NywxXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"filter\": [], \"query\": {\"query\": \"\", \"language\": \"kuery\"}}"
+                },
+                "savedSearchRefName": "search_0",
+                "title": "Top ASA Messages [Filebeat Cisco]",
+                "uiStateJSON": "{\"vis\": {\"params\": {\"sort\": {\"direction\": \"desc\", \"columnIndex\": 1}}}}",
+                "version": 1,
+                "visState": "{\"type\": \"table\", \"title\": \"Top ASA Messages [Filebeat Cisco]\", \"params\": {\"sort\": {\"direction\": null, \"columnIndex\": null}, \"perPage\": 10, \"showPartialRows\": false, \"showMetricsAtAllLevels\": false, \"showTotal\": true, \"totalFunc\": \"sum\"}, \"aggs\": [{\"enabled\": true, \"schema\": \"bucket\", \"id\": \"2\", \"params\": {\"order\": \"desc\", \"orderBy\": \"_key\", \"customLabel\": \"ID\", \"otherBucket\": false, \"missingBucket\": false, \"otherBucketLabel\": \"Other\", \"field\": \"cisco.asa.message_id\", \"size\": 15, \"missingBucketLabel\": \"Missing\"}, \"type\": \"terms\"}, {\"enabled\": true, \"schema\": \"metric\", \"id\": \"3\", \"params\": {}, \"type\": \"count\"}, {\"enabled\": true, \"schema\": \"metric\", \"id\": \"4\", \"params\": {\"aggregate\": \"concat\", \"sortField\": \"@timestamp\", \"field\": \"log.level\", \"size\": 1, \"customLabel\": \"Severity\", \"sortOrder\": \"desc\"}, \"type\": \"top_hits\"}, {\"enabled\": true, \"schema\": \"metric\", \"id\": \"1\", \"params\": {\"aggregate\": \"concat\", \"sortField\": \"@timestamp\", \"field\": \"event.original\", \"size\": 1, \"customLabel\": \"Sample message\", \"sortOrder\": \"desc\"}, \"type\": \"top_hits\"}]}"
+            },
+            "id": "fd89b1e0-49a2-11e9-b8ce-ed898b5ef295",
+            "migrationVersion": {
+                "visualization": "7.0.0"
+            },
+            "references": [
+                {
+                    "id": "14fce5e0-498f-11e9-b8ce-ed898b5ef295",
+                    "name": "search_0",
+                    "type": "search"
+                }
+            ],
+            "type": "visualization",
+            "updated_at": "2019-03-18T17:26:39.870Z",
+            "version": "WzI1OSwxXQ=="
+        },
+        {
+            "attributes": {
+                "columns": [
+                    "_source"
+                ],
+                "description": "",
+                "hits": 0,
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"filter\": [], \"version\": true, \"highlightAll\": true, \"indexRefName\": \"kibanaSavedObjectMeta.searchSourceJSON.index\", \"query\": {\"query\": \"cisco.asa.message_id:* and event.action:\\\"flow-expiration\\\"\", \"language\": \"kuery\"}}"
+                },
+                "sort": [
+                    "@timestamp",
+                    "desc"
+                ],
+                "title": "ASA Firewall flows [Filebeat Cisco]",
+                "version": 1
+            },
+            "id": "753406e0-4986-11e9-b8ce-ed898b5ef295",
+            "migrationVersion": {
+                "search": "7.0.0"
+            },
+            "references": [
+                {
+                    "id": "filebeat-*",
+                    "name": "kibanaSavedObjectMeta.searchSourceJSON.index",
+                    "type": "index-pattern"
+                }
+            ],
+            "type": "search",
+            "updated_at": "2019-03-18T14:02:44.176Z",
+            "version": "WzI0MywxXQ=="
+        },
+        {
+            "attributes": {
+                "columns": [
+                    "_source"
+                ],
+                "description": "",
+                "hits": 0,
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"filter\": [], \"version\": true, \"highlightAll\": true, \"indexRefName\": \"kibanaSavedObjectMeta.searchSourceJSON.index\", \"query\": {\"query\": \"cisco.asa.message_id:* and event.action:\\\"firewall-rule\\\"\", \"language\": \"kuery\"}}"
+                },
+                "sort": [
+                    "@timestamp",
+                    "desc"
+                ],
+                "title": "ASA Firewall Events [Filebeat Cisco]",
+                "version": 1
+            },
+            "id": "96c6ff60-4986-11e9-b8ce-ed898b5ef295",
+            "migrationVersion": {
+                "search": "7.0.0"
+            },
+            "references": [
+                {
+                    "id": "filebeat-*",
+                    "name": "kibanaSavedObjectMeta.searchSourceJSON.index",
+                    "type": "index-pattern"
+                }
+            ],
+            "type": "search",
+            "updated_at": "2019-03-18T14:03:21.558Z",
+            "version": "WzI0NCwxXQ=="
+        },
+        {
+            "attributes": {
+                "columns": [
+                    "_source"
+                ],
+                "description": "",
+                "hits": 0,
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"filter\": [], \"version\": true, \"highlightAll\": true, \"indexRefName\": \"kibanaSavedObjectMeta.searchSourceJSON.index\", \"query\": {\"query\": \"cisco.asa.message_id :*\", \"language\": \"kuery\"}}"
+                },
+                "sort": [
+                    "@timestamp",
+                    "desc"
+                ],
+                "title": "All ASA Logs [Filebeat Cisco]",
+                "version": 1
+            },
+            "id": "14fce5e0-498f-11e9-b8ce-ed898b5ef295",
+            "migrationVersion": {
+                "search": "7.0.0"
+            },
+            "references": [
+                {
+                    "id": "filebeat-*",
+                    "name": "kibanaSavedObjectMeta.searchSourceJSON.index",
+                    "type": "index-pattern"
+                }
+            ],
+            "type": "search",
+            "updated_at": "2019-03-18T15:04:09.277Z",
+            "version": "WzI1NiwxXQ=="
+        }
+    ],
+    "version": "7.0.0-SNAPSHOT"
+}

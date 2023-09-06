@@ -1,0 +1,164 @@
+{
+    "objects": [
+        {
+            "attributes": {
+                "description": "Netflow flow records",
+                "hits": 0,
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"filter\": [{\"$state\": {\"store\": \"globalState\"}, \"query\": {\"match\": {\"input.type\": {\"query\": \"netflow\", \"type\": \"phrase\"}}}, \"meta\": {\"alias\": null, \"negate\": false, \"type\": \"phrase\", \"disabled\": false, \"key\": \"input.type\", \"indexRefName\": \"kibanaSavedObjectMeta.searchSourceJSON.filter[0].meta.index\", \"params\": {\"query\": \"netflow\"}, \"value\": \"netflow\"}}], \"highlightAll\": true, \"version\": true}"
+                },
+                "optionsJSON": "{\"darkTheme\": false}",
+                "panelsJSON": "[{\"panelRefName\": \"panel_0\", \"col\": 4, \"size_x\": 9, \"row\": 2, \"panelIndex\": 2, \"size_y\": 2}, {\"panelRefName\": \"panel_1\", \"col\": 1, \"size_x\": 3, \"row\": 2, \"panelIndex\": 3, \"size_y\": 2}, {\"panelRefName\": \"panel_2\", \"col\": 1, \"size_x\": 12, \"row\": 1, \"panelIndex\": 4, \"size_y\": 1}, {\"sort\": [\"@timestamp\", \"desc\"], \"panelRefName\": \"panel_3\", \"col\": 1, \"size_x\": 12, \"row\": 4, \"columns\": [\"source.ip\", \"source.port\", \"destination.ip\", \"destination.port\", \"network.transport\", \"network.bytes\", \"network.packets\"], \"panelIndex\": 5, \"size_y\": 4}]",
+                "timeRestore": false,
+                "title": "[Filebeat Netflow] Flow records",
+                "uiStateJSON": "{\"P-3\": {\"vis\": {\"defaultColors\": {\"0 - 100\": \"rgb(0,104,55)\"}}}}",
+                "version": 1
+            },
+            "id": "94972700-de4a-4272-9143-2fa8d4981365",
+            "migrationVersion": {
+                "dashboard": "7.0.0"
+            },
+            "references": [
+                {
+                    "id": "filebeat-*",
+                    "name": "kibanaSavedObjectMeta.searchSourceJSON.filter[0].meta.index",
+                    "type": "index-pattern"
+                },
+                {
+                    "id": "4bb0255e-18ed-45e4-bfb9-de8e35b12094",
+                    "name": "panel_0",
+                    "type": "visualization"
+                },
+                {
+                    "id": "c27c6a3b-93ee-44d5-8d0c-9b097e575f52",
+                    "name": "panel_1",
+                    "type": "visualization"
+                },
+                {
+                    "id": "d4e6520a-9ced-47c9-a8f2-7246e8cbd2d3",
+                    "name": "panel_2",
+                    "type": "visualization"
+                },
+                {
+                    "id": "a34c6611-79d8-4b50-ae3f-8b328d28e24a",
+                    "name": "panel_3",
+                    "type": "search"
+                }
+            ],
+            "type": "dashboard",
+            "updated_at": "2019-07-11T04:44:34.680Z",
+            "version": "WzM0MjcsMV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"filter\": [], \"indexRefName\": \"kibanaSavedObjectMeta.searchSourceJSON.index\", \"query\": {\"query_string\": {\"analyze_wildcard\": true, \"query\": \"*\"}}}"
+                },
+                "title": "Flow Records [Filebeat Netflow]",
+                "uiStateJSON": "{\"vis\": {\"legendOpen\": true}}",
+                "version": 1,
+                "visState": "{\"type\": \"histogram\", \"listeners\": {}, \"title\": \"Flow Records [Filebeat Netflow]\", \"params\": {\"addTooltip\": true, \"addLegend\": true, \"addTimeMarker\": false, \"scale\": \"linear\", \"setYExtents\": false, \"defaultYExtents\": false, \"seriesParams\": [{\"data\": {\"id\": \"1\", \"label\": \"Flow Records\"}, \"drawLinesBetweenPoints\": true, \"type\": \"histogram\", \"valueAxis\": \"ValueAxis-1\", \"show\": \"true\", \"showCircles\": true, \"mode\": \"stacked\"}], \"mode\": \"stacked\", \"grid\": {\"style\": {\"color\": \"#eee\"}, \"categoryLines\": false}, \"times\": [], \"legendPosition\": \"right\", \"categoryAxes\": [{\"labels\": {\"truncate\": 100, \"show\": true}, \"id\": \"CategoryAxis-1\", \"show\": true, \"style\": {}, \"type\": \"category\", \"scale\": {\"type\": \"linear\"}, \"title\": {}, \"position\": \"bottom\"}], \"valueAxes\": [{\"labels\": {\"filter\": false, \"rotate\": 0, \"truncate\": 100, \"show\": true}, \"id\": \"ValueAxis-1\", \"name\": \"LeftAxis-1\", \"show\": true, \"style\": {}, \"type\": \"value\", \"scale\": {\"type\": \"linear\", \"mode\": \"normal\"}, \"title\": {\"text\": \"Count\"}, \"position\": \"left\"}]}, \"aggs\": [{\"enabled\": true, \"schema\": \"metric\", \"id\": \"1\", \"params\": {\"customLabel\": \"Flow Records\"}, \"type\": \"count\"}, {\"enabled\": true, \"schema\": \"segment\", \"id\": \"2\", \"params\": {\"interval\": \"s\", \"field\": \"event.end\", \"customLabel\": \"Timeline\", \"min_doc_count\": 1, \"extended_bounds\": {}}, \"type\": \"date_histogram\"}, {\"enabled\": true, \"schema\": \"group\", \"id\": \"3\", \"params\": {\"size\": 5, \"order\": \"desc\", \"field\": \"netflow.exporter.version\", \"customLabel\": \"Version\", \"orderBy\": \"1\"}, \"type\": \"terms\"}]}"
+            },
+            "id": "4bb0255e-18ed-45e4-bfb9-de8e35b12094",
+            "migrationVersion": {
+                "visualization": "7.2.0"
+            },
+            "references": [
+                {
+                    "id": "filebeat-*",
+                    "name": "kibanaSavedObjectMeta.searchSourceJSON.index",
+                    "type": "index-pattern"
+                }
+            ],
+            "type": "visualization",
+            "updated_at": "2019-07-11T04:44:34.680Z",
+            "version": "WzM0MjgsMV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"filter\": [], \"indexRefName\": \"kibanaSavedObjectMeta.searchSourceJSON.index\", \"query\": {\"query_string\": {\"analyze_wildcard\": true, \"query\": \"*\"}}}"
+                },
+                "title": "Flow Records [Filebeat Netflow]",
+                "uiStateJSON": "{\"vis\": {\"defaultColors\": {\"0 - 100\": \"rgb(0,104,55)\"}}}",
+                "version": 1,
+                "visState": "{\"type\": \"metric\", \"listeners\": {}, \"title\": \"Flow Records [Filebeat Netflow]\", \"params\": {\"handleNoResults\": true, \"addTooltip\": true, \"gauge\": {\"useRange\": false, \"verticalSplit\": false, \"percentageMode\": false, \"type\": \"simple\", \"gaugeType\": \"Metric\", \"colorSchema\": \"Green to Red\", \"autoExtend\": false, \"gaugeStyle\": \"Full\", \"orientation\": \"vertical\", \"labels\": {\"show\": true, \"color\": \"black\"}, \"scale\": {\"labels\": false, \"show\": false, \"width\": 2, \"color\": \"#333\"}, \"backStyle\": \"Full\", \"style\": {\"subText\": \"\", \"bgColor\": false, \"bgFill\": \"#000\", \"labelColor\": false, \"fontSize\": \"36\"}, \"gaugeColorMode\": \"None\", \"colorsRange\": [{\"to\": 100, \"from\": 0}], \"invertColors\": false}, \"addLegend\": false, \"type\": \"gauge\", \"fontSize\": \"32\"}, \"aggs\": [{\"enabled\": true, \"schema\": \"metric\", \"id\": \"1\", \"params\": {\"customLabel\": \"Flow Records\"}, \"type\": \"count\"}]}"
+            },
+            "id": "c27c6a3b-93ee-44d5-8d0c-9b097e575f52",
+            "migrationVersion": {
+                "visualization": "7.2.0"
+            },
+            "references": [
+                {
+                    "id": "filebeat-*",
+                    "name": "kibanaSavedObjectMeta.searchSourceJSON.index",
+                    "type": "index-pattern"
+                }
+            ],
+            "type": "visualization",
+            "updated_at": "2019-07-11T04:44:34.680Z",
+            "version": "WzM0MjksMV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"filter\": [], \"query\": {\"query_string\": {\"analyze_wildcard\": true, \"query\": \"*\"}}}"
+                },
+                "title": "Dashboard Navigation [Filebeat Netflow]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"type\": \"markdown\", \"listeners\": {}, \"title\": \"Dashboard Navigation [Filebeat Netflow]\", \"params\": {\"markdown\": \"[Overview](#/dashboard/34e26884-161a-4448-9556-43b5bf2f62a2) | [Conversation Partners](#/dashboard/acd7a630-0c71-4840-bc9e-4a3801374a32) | [Traffic Analysis](#/dashboard/38012abe-c611-4124-8497-381fcd85acc8) | [Top-N](#/dashboard/14387a13-53bc-43a4-b9cd-63977aa8d87c) | [Geo Location](#/dashboard/77326664-23be-4bf1-a126-6d7e60cfc024) | [Autonomous Systems](#/dashboard/c64665f9-d222-421e-90b0-c7310d944b8a) | [Flow Exporters](#/dashboard/feebb4e6-b13e-4e4e-b9fc-d3a178276425) | [Raw Flow Records](#/dashboard/94972700-de4a-4272-9143-2fa8d4981365)\\n***\"}, \"aggs\": []}"
+            },
+            "id": "d4e6520a-9ced-47c9-a8f2-7246e8cbd2d3",
+            "migrationVersion": {
+                "visualization": "7.2.0"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2019-07-11T04:44:38.685Z",
+            "version": "WzM0NjQsMV0="
+        },
+        {
+            "attributes": {
+                "columns": [
+                    "source.ip",
+                    "source.port",
+                    "destination.ip",
+                    "destination.port",
+                    "network.transport",
+                    "network.bytes",
+                    "network.packets"
+                ],
+                "description": "",
+                "hits": 0,
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"filter\": [], \"version\": true, \"highlightAll\": true, \"indexRefName\": \"kibanaSavedObjectMeta.searchSourceJSON.index\", \"query\": {\"query_string\": {\"analyze_wildcard\": true, \"query\": \"*\"}}}"
+                },
+                "sort": [
+                    "@timestamp",
+                    "desc"
+                ],
+                "title": "Flow Records [Filebeat Netflow]",
+                "version": 1
+            },
+            "id": "a34c6611-79d8-4b50-ae3f-8b328d28e24a",
+            "migrationVersion": {
+                "search": "7.0.0"
+            },
+            "references": [
+                {
+                    "id": "filebeat-*",
+                    "name": "kibanaSavedObjectMeta.searchSourceJSON.index",
+                    "type": "index-pattern"
+                }
+            ],
+            "type": "search",
+            "updated_at": "2019-07-11T04:44:34.680Z",
+            "version": "WzM0MzEsMV0="
+        }
+    ],
+    "version": "7.2.0"
+}
